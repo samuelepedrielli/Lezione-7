@@ -1,0 +1,30 @@
+#Exercise 1
+
+class P3D:
+    def __init__(point,x,y,z): 
+        point.x = x
+        point.y = y
+        point.z = z
+    def write(point):
+        print("The default coordinates are: [",point.x,",",point.y,",",point.z,"]")
+    def move(point):
+        x=input("Change the x coordinate: ")
+        point.x=float(x)
+        y=input("Change the y coordinate: ")
+        point.y=float(y)
+        z=input("Change the z coordinate: ")
+        point.z=float(z)
+        print("The new coordinates are: [",point.x,",",point.y,",",point.z,"]")
+    def distance(a,b):
+        print("The distance is: ")
+        return ((a.x-b.x)**2+(a.y-b.y)**2+(a.z-b.z)**2)**(0.5)
+    
+#inizializes of the point in the origin 
+p1=P3D(0,0,0)
+#writes the default coordinates
+p1.write()
+#allows for a change in coordinates
+p1.move()
+#asks for a second point and evaluates the distance
+p2=P3D(1,0,0)
+print(p1.distance(p2))
