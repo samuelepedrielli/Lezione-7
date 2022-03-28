@@ -1,0 +1,47 @@
+class P2D:
+    def __init__(point,x,y):
+        point.x = x
+        point.y = y
+    def coord(point):
+        coords=[point.x,point.y]
+        print(coords)
+    def bari(bar,P):
+        bar.x=0.0
+        bar.y=0.0
+        for l in range(len(P)):
+            try:
+                bar.x=bar.x+(P[l].x)/len(P)
+                bar.y=bar.y+(P[l].y)/len(P)
+            except ZeroDivisionError:
+                print("No points have been passed")
+        return bar
+    def baricoord(bar):
+        coord_bar=[bar.x,bar.y]
+        print(coord_bar)
+  
+    
+print('Enter the file name: ')
+file=input()
+indata=open(file,'r')
+lines=indata.readlines()
+indata.close()
+x=[]
+y=[]
+for el in lines:
+    coord=el.split()
+    if (len(coord)>0):
+        try:
+            x.append(float(coord[0]))
+            y.append(float(coord[0]))
+        except ValueError:
+            print("Names of the coordinates have been skipped.")
+
+ps=[]
+print("Coordinates of the points: ")
+for i in range(len(x)):
+   p=P2D(x[i],y[i])
+   p.coord()
+   ps.append(p)
+p.bari(ps)
+print("Coordinates of the barycenter: ")
+p.baricoord()
