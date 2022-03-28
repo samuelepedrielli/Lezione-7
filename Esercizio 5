@@ -1,0 +1,73 @@
+#Exercise 5
+
+# 3x3 matrix 
+X1 = [[12,7,3],[4 ,5,6], [7 ,8,9]]
+# 3x4 matrix 
+Y1 = [[5,8,1,2],[6,7,3,0], [4,5,9,1]]
+# multiplyiable: result is 3x4
+
+# 3x3 matrix 
+X2 = [[12,7,3],[4 ,5,6], [7 ,8,9]]
+# 4x4 matrix 
+Y2 = [[5,8,1,2],[6,7,3,0], [4,5,9,1],[5,8,1,2]]
+#not multiplyiable
+
+# 3x3 not a number matrix 
+X3 = [["a",7,3],[4 ,5,6], [7 ,8,9]]
+# 3x4 matrix 
+Y3 = [[5,8,1,2],[6,7,3,0], [4,5,9,1]]
+# the first contains a letter
+
+#1x3 array
+J1=[1,2,3]
+#1x3 array
+K1=[1,2,3]
+#multiplyiable: result is a scalar
+
+#1x3 array
+J2=["a",2,3]
+#1x3 array
+K2=[1,2,3]
+#the first contains a letter
+
+#1x3 array
+J3=[1,2,3]
+#1x3 array
+K3=[1,2,3,4]
+#not multiplyiable
+
+def ll(a,b):
+    result = 0
+    try:
+        for i in range(len(max(a,b))):
+            result+=a[i]*b[i]
+        return print(result)
+    except TypeError:
+        print("The array you gave me contained letters. How am I supposed to multiply them?")
+    except IndexError:
+        print("The two arrays must be multiplyiable.")
+
+def mm(a,b):
+    n=len(a)
+    m=len(b[0])
+    result = [[0 for x in range(m)] for y in range(n)]
+    try:
+        for i in range(n):
+            for j in range(m):
+                for k in range(len(b)):
+                    result[i][j] += a[i][k] * b[k][j]
+        for r in result: print(r)
+    except TypeError:
+        print("The matrix you gave me contained letters. How am I supposed to multiply them?.")
+    except IndexError:
+        print("The two matrix must be multiplyiable.")
+mm(X1,Y1) #multiplyiable
+mm(X2,Y2) #not multiplyiable
+mm(X3,X3) #contain letters
+
+ll(J1,K1) #multiplyiable
+ll(J2,K2) #contain letters
+ll(J3,K3) #not multiplyiable
+
+
+
