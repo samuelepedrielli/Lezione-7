@@ -1,0 +1,31 @@
+#Lambda è una funzione anonima che può contenere un numero
+#qualsiasi di parametri, ma solo  un'espressione, restituendo 
+#un unico valore.
+
+#lambda a: a+10 
+#calcola la somma a+10
+#ad esempio:
+#l = lambda a: a+10
+# print(l(4))
+#restituisce 14
+# l = lambda animale: animale.capitalize()
+#l maiuscolizza l'iniziale della stringa
+#ad esempio:
+#animali = ['cani', 'gatti', 'scoiattoli', 'alci']
+#l = lambda animale: animale.capitalize()
+#for animale in animali:
+# print(f(animale))
+#restituisce 
+#Cani 
+#Gatti
+#Scoiattoli
+#Alci
+
+import random
+l = lambda x,y: (x+y)*0.5
+x=random.randint(0,100)
+print(x)
+y=random.randint(0,100)
+print(y)
+avg=l(x,y)
+print(avg)
