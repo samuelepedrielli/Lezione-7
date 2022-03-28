@@ -1,0 +1,76 @@
+#Exercise 4
+
+import random
+class cs:
+    def __init__(team,name,x):
+        team.name = name
+        team.points = x
+    
+    def add (team):
+        nt=input("Add a new team: ")
+        name.append(nt)
+        points.append(random.randint(0,100))
+        print(name,points)
+        
+    def dele (team):
+        dt=input("Enter the name of the team you want to delete: ")
+        while dt not in team.name:
+            dt=input("This team is not playing. Try again: ")
+        i=team.name.index(dt)
+        pdt=points[i]
+        name.remove(dt)
+        points.remove(pdt)
+    
+    def scores (team):
+        st =input("Enter the name of a team to know its score: ")
+        while st not in team.name:
+            st=input("This team is not playing. Try again: ")
+        i=team.name.index(st)
+        print("The selected team has", team.points[i], "points.")
+    
+    def winner(team):
+        i=team.points.index(max(team.points))
+        print("The winning team is: ",team.name[i],", with",max(team.points),"points.")
+    
+    def retrocession(team):
+        li=team.points.index(min(team.points))
+        ln=team.name[li]
+        lp=team.points[li]
+        
+        names_new=team.name.copy()
+        scores_new=team.points.copy()
+        scores_new.remove(lp)
+        names_new.remove(ln)
+        
+        print(scores_new, names_new)
+        li2=team.points.index(min(scores_new))
+        ln2=names_new[li2]
+        lp2=scores_new[li2]
+        
+        names_new2=names_new.copy()
+        scores_new2=scores_new.copy()
+        
+        scores_new2.remove(lp2)
+        names_new2.remove(ln2)
+        
+        print(names_new2, scores_new2)
+        li3=scores_new2.index(min(scores_new2))
+        print( "Last three teams: \n1)", team.name[li], team.points[li],  "\n2)",names_new[li2],scores_new[li2], "\n3)",names_new2[li3],scores_new2[li3])
+  
+print("Enter the number of teams: ")
+n=input()
+n=int(n)
+name=[]
+points=[]
+for i in range(0,n): 
+  print("Enter the name of the team number", i)
+  team=input()
+  name.append(team)
+  points.append(random.randint(0,100))
+  print(name[i],points[i])
+  
+cs(name,points).add()
+cs(name,points).dele()
+cs(name,points).scores()
+cs(name,points).winner()
+cs(name,points).retrocession()
